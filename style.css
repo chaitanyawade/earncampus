@@ -40,22 +40,28 @@ body {
 
 .tab-section {
   display: flex;
-  justify-content: center;
-  margin: 15px 0;
+  background: #e2e8f0;
+  padding: 5px;
+  border-radius: var(--radius-sm);
+  max-width: 400px;
+  margin: 0 auto 30px auto;
 }
 
 .tab-button {
-  padding: 10px 20px;
+  flex: 1;
+  padding: 12px;
   border: none;
-  margin: 0 5px;
   cursor: pointer;
-  background: #ddd;
-  border-radius: 5px;
+  background: transparent;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 6px;
 }
 
 .active-tab {
-  background: #222;
+  background: var(--primary);
   color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .post-form-section {
