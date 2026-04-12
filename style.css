@@ -65,46 +65,68 @@ body {
 }
 
 .post-form-section {
-  background: white;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 10px;
+  width: 50%;
+  justify-self: center;
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
 }
 
-.post-form-section input,
+.post-form-section input, 
 .post-form-section textarea {
   width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  outline: none;
+  resize: none;
 }
 
-.post-button {
-  width: 100%;
-  padding: 10px;
-  background: #222;
+.post-form-section input:focus, 
+.post-form-section textarea:focus {
+  border-color: var(--primary);
+}
+
+.composer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.price-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding-left: 10px;
+  width: 120px;
+}
+
+.price-input input { 
+  margin-bottom: 0; border: none; 
+}
+
+#postBtn {
+  max-width: 40%;
+  flex: 1;
+  background: var(--primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+}
+
+#postBtn:hover { 
+  background: var(--primary-hover);
 }
 
 .feed-section {
   margin: 15px;
-}
-
-.post-card {
-  background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.post-title {
-  font-weight: bold;
-}
-
-.post-price {
-  color: green;
 }

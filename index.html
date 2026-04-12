@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>EarnCampus</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 
@@ -17,12 +19,17 @@
     <button id="offerTab" class="tab-button">I OFFER</button>
   </div>
 
-  <div class="post-form-section">
-    <input type="text" id="postTitle" placeholder="What do you need or offer?" />
-    <textarea id="postDetails" placeholder="Add more details..."></textarea>
-    <input type="number" id="postPrice" placeholder="Enter price ₹" />
-    <button id="postBtn" class="post-button">Post</button>
-  </div>
+  <section class="post-form-section">
+    <input type="text" id="postTitle" placeholder="What's on your mind? (e.g., Need a bike)" />
+    <textarea id="postDetails" rows="4" placeholder="Describe the task or service in detail..."></textarea>
+    <div class="composer-footer">
+      <div class="price-input">
+        <span>₹</span>
+        <input type="number" id="postPrice" placeholder="0.00" />
+      </div>
+      <button id="postBtn" class="btn-primary">Post Request</button>
+    </div>
+  </section>
 
   <div class="feed-section">
     <h2 id="feedHeading">I NEED POSTS</h2>
@@ -30,6 +37,7 @@
   </div>
 
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
