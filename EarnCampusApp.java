@@ -6,12 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EarnCampusApp extends JFrame {
-    private final Color PRIMARY = new Color(37, 99, 235);
+    private final Color PRIMARY = new Color(27, 27, 27);
     private final Color BG = new Color(248, 250, 252);
     private final Color BORDER = new Color(226, 232, 240);
-    private final Color TEXT_MAIN = new Color(30, 41, 59);
     private final Color TEXT_MUTED = new Color(100, 116, 139);
-    private final Color GREEN = new Color(22, 163, 74);
 
     private String currentTab = "need";
     private final List<Post> needPosts = new ArrayList<>();
@@ -43,9 +41,8 @@ public class EarnCampusApp extends JFrame {
         mainContent.setBorder(new EmptyBorder(0, 12, 20, 12));
 
         setupTabs(mainContent);
-        setupComposer(mainContent); // Restored your original composer
+        setupComposer(mainContent);
 
-        // FIXED: Heading Position
         JPanel headingWrapper = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
         headingWrapper.setOpaque(false);
         headingWrapper.setMaximumSize(new Dimension(420, 40));
@@ -76,20 +73,16 @@ public class EarnCampusApp extends JFrame {
     private void setupHeader() {
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(Color.WHITE);
-        header.setPreferredSize(new Dimension(420, 80)); // Slightly taller for breathing room
+        header.setPreferredSize(new Dimension(420, 80)); 
         header.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, BORDER));
 
-        // Left Side: Brand Logo
         JLabel title = new JLabel("<html><body style='padding-left: 15px;'>" +
-                "<span style='font-size:22px; font-weight:800; color:#2563eb;'>Earn</span>" +
-                "<span style='font-size:22px; font-weight:800; color:#1e293b;'>Campus</span>" +
+                "<span style='font-size:22px; font-weight:800;'>EarnCampus</span>" +
                 "</body></html>");
 
-        // Right Side: Location/Hostel Container
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 15, 22));
         rightPanel.setOpaque(false);
 
-        // Styled Hostel Selector
         hostelSelect = new JComboBox<>(new String[] { "All Hostels", "H1", "H2", "H3" });
         hostelSelect.setFont(new Font("SansSerif", Font.BOLD, 12));
         hostelSelect.setBackground(Color.WHITE);
@@ -97,11 +90,9 @@ public class EarnCampusApp extends JFrame {
         hostelSelect.setCursor(new Cursor(Cursor.HAND_CURSOR));
         hostelSelect.addActionListener(e -> renderPosts());
 
-        // Modern Location Icon Label
         JLabel locIcon = new JLabel("📍");
         locIcon.setFont(new Font("SansSerif", Font.PLAIN, 16));
 
-        // Add components to the right panel
         rightPanel.add(locIcon);
         rightPanel.add(hostelSelect);
 
@@ -160,7 +151,7 @@ public class EarnCampusApp extends JFrame {
         pricePill.setBorder(new LineBorder(BORDER, 1, true));
 
         JLabel currencyLabel = new JLabel("₹");
-        currencyLabel.setForeground(GREEN);
+        currencyLabel.setForeground(PRIMARY);
         currencyLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
 
         postPrice = new JTextField("0", 5);
@@ -178,7 +169,6 @@ public class EarnCampusApp extends JFrame {
                     }
                 });
 
-        // FIX 2: Placeholder Logic (Clear '0' on click)
         postPrice.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (postPrice.getText().equals("0"))
@@ -253,7 +243,6 @@ public class EarnCampusApp extends JFrame {
             JPanel titleStack = new JPanel(new GridLayout(2, 1, 0, 0));
             titleStack.setOpaque(false);
 
-            // FIXED: Added HTML wrapping to the title to prevent overflow
             JLabel title = new JLabel(
                     "<html><div style='width: 180px; font-family: SansSerif; font-weight: bold; font-size: 11px;'>"
                             + p.title + "</div></html>");
@@ -300,7 +289,7 @@ public class EarnCampusApp extends JFrame {
                     JTextField nameIn = new JTextField();
                     nameIn.setBorder(BorderFactory.createTitledBorder(new LineBorder(BORDER), "ENTER YOUR NAME", 0, 0,
                             new Font("SansSerif", Font.BOLD, 9)));
-                    RoundedButton sub = new RoundedButton("Confirm Offer", GREEN, Color.WHITE);
+                    RoundedButton sub = new RoundedButton("Confirm Offer", PRIMARY, Color.WHITE);
                     sub.addActionListener(e -> {
                         String inputName = nameIn.getText().trim();
                         if (inputName.isEmpty())
@@ -332,7 +321,7 @@ public class EarnCampusApp extends JFrame {
                     row.add(uLabel, BorderLayout.WEST);
 
                     if (currentTab.equals("need")) {
-                        JButton acc = new RoundedButton("Accept", GREEN, Color.WHITE);
+                        JButton acc = new RoundedButton("Accept", PRIMARY, Color.WHITE);
                         acc.setPreferredSize(new Dimension(80, 28));
                         acc.addActionListener(e -> {
                             p.selectedUser = user;
@@ -349,7 +338,7 @@ public class EarnCampusApp extends JFrame {
                 JPanel statusBox = new RoundedPanel(8, new Color(240, 253, 244));
                 statusBox.setLayout(new FlowLayout(FlowLayout.CENTER));
                 JLabel status = new JLabel("✅ Assigned to " + p.selectedUser);
-                status.setForeground(GREEN);
+                status.setForeground(PRIMARY);
                 status.setFont(new Font("SansSerif", Font.BOLD, 12));
                 statusBox.add(status);
                 actionPanel.add(Box.createVerticalStrut(15));
